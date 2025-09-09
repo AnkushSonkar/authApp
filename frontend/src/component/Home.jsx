@@ -12,7 +12,7 @@ const Home = () => {
   const handleLogout = async () => {
     try {
       // Call backend logout API
-      const res = await fetch("http://localhost:3000/logout", {
+      const res = await fetch("https://authapp-1-d1d2.onrender.com/logout", {
         method: "POST", // or GET depending on your backend
         credentials: "include", // important if token is in cookies
       });

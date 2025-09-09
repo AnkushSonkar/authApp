@@ -18,7 +18,7 @@ const SignUp = () => {
 
   const onSubmit = async (formData) => {
     try {
-      const res = await fetch("http://localhost:3000/signup", {
+      const res = await fetch("https://authapp-1-d1d2.onrender.com/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

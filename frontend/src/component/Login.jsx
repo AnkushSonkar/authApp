@@ -12,7 +12,7 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const res = await fetch("http://localhost:3000/login", {
+      const res = await fetch("https://authapp-1-d1d2.onrender.com/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // ✅ very important for cookies
