@@ -1,19 +1,24 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     document.title = "Home | MyApp";
-  }, []);
 
-  const navigate = useNavigate();
+    // ✅ Check if token cookie exists
+    const isLoggedIn = document.cookie.includes("token=");
+    if (!isLoggedIn) {
+      navigate("/login"); // redirect to login if no token
+    }
+  }, [navigate]);
 
   const handleLogout = async () => {
     try {
       // Call backend logout API
       const res = await fetch("https://authapp-3l1r.onrender.com/logout", {
-        method: "POST", // or GET depending on your backend
+        method: "POST",
         credentials: "include", // important if token is in cookies
       });
 
@@ -53,10 +58,6 @@ const Home = () => {
               Logout
             </button>
           </nav>
-          {/* Mobile menu placeholder */}
-          {/* <button className="md:hidden text-gray-700 hover:text-blue-600">
-            ☰
-          </button> */}
         </div>
       </header>
 
