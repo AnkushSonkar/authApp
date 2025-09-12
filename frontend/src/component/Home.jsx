@@ -1,34 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const baseUrl = import.meta.env.VITE_BASE_URL;
 const Home = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     document.title = "Home | MyApp";
-
-    // ✅ Call backend to validate token
-    const checkAuth = async () => {
-      try {
-        const res = await fetch(`${baseUrl}/home`, {
-          method: "GET",
-          credentials: "include", // send cookies
-        });
-
-        if (!res.ok) {
-          navigate("/login"); // redirect if unauthorized
-        }
-      } catch (err) {
-        console.error("Auth check failed:", err);
-        navigate("/login");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    checkAuth();
-  }, [navigate]);
+  }, []);
 
   const handleLogout = async () => {
     try {
@@ -44,13 +22,6 @@ const Home = () => {
       console.error("Error during logout:", err);
     }
   };
-
-  if (loading)
-    return (
-      <div className="h-screen flex items-center justify-center">
-        Loading...
-      </div>
-    );
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
