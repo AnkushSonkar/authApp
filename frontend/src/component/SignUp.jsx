@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 const SignUp = () => {
   useEffect(() => {
@@ -18,7 +19,7 @@ const SignUp = () => {
 
   const onSubmit = async (formData) => {
     try {
-      const res = await fetch("https://authapp-3l1r.onrender.com/signup", {
+      const res = await fetch(`${baseUrl}/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

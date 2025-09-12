@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 const Login = () => {
   useEffect(() => {
@@ -12,7 +13,7 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const res = await fetch("https://authapp-3l1r.onrender.com/login", {
+      const res = await fetch(`${baseUrl}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // ✅ very important for cookies

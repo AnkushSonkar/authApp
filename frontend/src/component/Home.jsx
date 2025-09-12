@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+const baseUrl = import.meta.env.VITE_BASE_URL;
 const Home = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ const Home = () => {
     // ✅ Call backend to validate token
     const checkAuth = async () => {
       try {
-        const res = await fetch("https://authapp-3l1r.onrender.com/home", {
+        const res = await fetch(`${baseUrl}/home`, {
           method: "GET",
           credentials: "include", // send cookies
         });
@@ -32,7 +32,7 @@ const Home = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("https://authapp-3l1r.onrender.com/logout", {
+      const res = await fetch(`${baseUrl}/logout`, {
         method: "POST",
         credentials: "include",
       });
