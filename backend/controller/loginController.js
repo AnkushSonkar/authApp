@@ -30,8 +30,9 @@ export const loginController = async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // ✅ only true in Render
-      sameSite: "None", // ✅ must be capital "N"
+      secure: true, // only HTTPS
+      sameSite: "none", // allow cross-site
+      path: "/",
     });
 
     return res.status(200).json({ message: "Login successful" });

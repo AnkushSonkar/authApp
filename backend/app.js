@@ -27,3 +27,5 @@ app.use("/", authRoute);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`API running on port ${PORT}`));
+
+app.set("trust proxy", 1);
