@@ -11,10 +11,10 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ✅ CORS first!
+// ✅ CORS 
 app.use(
   cors({
-    origin: "https://authapp-1-d1d2.onrender.com", // frontend
+    origin: process.env.CLIENT_URL,
     credentials: true,
   })
 );
@@ -23,9 +23,10 @@ app.use(
 dbConnection();
 
 // ✅ Routes
-app.use("/", authRoute);
+app.use("/api", authRoute);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`API running on port ${PORT}`));
 
 app.set("trust proxy", 1);
+
