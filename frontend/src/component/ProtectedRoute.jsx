@@ -1,7 +1,7 @@
 // ProtectedRoute.jsx
 import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-const baseUrl = import.meta.env.VITE_BASE_URL;
+const baseUrl = "https://authapp-thyi.onrender.com";
 
 const ProtectedRoute = ({ children }) => {
   const [checked, setChecked] = useState(false);
