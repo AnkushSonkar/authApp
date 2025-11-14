@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-const baseUrl = import.meta.env.VITE_BASE_URL;
+const baseUrl = "https://authapp-thyi.onrender.com";
 const Home = () => {
   const navigate = useNavigate();
 
