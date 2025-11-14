@@ -23,10 +23,10 @@ app.use(
 dbConnection();
 
 // ✅ Routes
-app.use("/api", authRoute);
+app.use("/", authRoute);
 
-const PORT = process.env.PORT || 5000;
+const PORT = "https://client-rti5.onrender.com" || 5000;
 app.listen(PORT, () => console.log(`API running on port ${PORT}`));
 
-app.set("trust proxy", 1);
+// app.set("trust proxy", 1);
 
